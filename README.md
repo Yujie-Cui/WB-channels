@@ -1,5 +1,8 @@
 
 # WB cache channels
+
+[![DOI](https://zenodo.org/badge/423478213.svg)](https://zenodo.org/badge/latestdoi/423478213)
+
 ======================================================================
 
 The files included in this archive contain the WB covert channel demo code.
