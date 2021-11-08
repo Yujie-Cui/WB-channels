@@ -1,7 +1,7 @@
 
 # WB cache channels
 
-[![DOI](https://zenodo.org/badge/423478213.svg)](https://zenodo.org/badge/latestdoi/423478213)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5653683.svg)](https://doi.org/10.5281/zenodo.5653683) 
 
 ======================================================================
 
