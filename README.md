@@ -79,10 +79,10 @@ $ `make`
 Code Usage:
 
 Sender:
-`./WBattacer sender sender_mode sender_period_Ts   sender_parameter_d` (sender_parameter_d represents the number of dirty cache lines used.)
+`./WBattack sender sender_mode sender_period_Ts   sender_parameter_d` (sender_parameter_d represents the number of dirty cache lines used.)
 
 Receiver:
-`./WBattacer receiver  receiver_period_Tr`    
+`./WBattack receiver  receiver_period_Tr`    
 
 For details on the sender's operations and the receiver's operations, please
 read Section IV of the paper.
@@ -92,11 +92,11 @@ Step 2.1.3: sender sends bit strings:
 
 Open two terminals, first, in terminal 1:
 
-$ `./WBattacer sender a 11000 8`
+$ `./WBattack sender a 11000 8`
 
 Then, in terminal 2:
 
-$ `./WBattacer receiver 11000 >a_d=8_t=11000`
+$ `./WBattack receiver 11000 >a_d=8_t=11000`
 
 In this example, the sender program will send 0 and 1 alternatively every 11000 cycles and 
 the receiver will take 100000 measurements every 11000 cycles. 
@@ -107,11 +107,11 @@ After the receiver program finishes, you can kill the sender program.
 
 Open two terminals, first, in terminal 1:
 
-$ `./WBattacer sender r 11000 8`
+$ `./WBattack sender r 11000 8`
 
 Then, in terminal 2:
 
-$ `./WBattacer receiver 11000 >r_d=8_t=11000`
+$ `./WBattack receiver 11000 >r_d=8_t=11000`
 
 In this example, the sender program will send a random string every 11000 cycles and 
 the receiver will take 100000 measurements every 11000 cycles. 
@@ -119,16 +119,26 @@ the receiver will take 100000 measurements every 11000 cycles.
 After the receiver program finishes, you can kill the sender program.
 
 
+
 Info:
 * Now you can watch the results in the `a_d=8_t=11000` and `r_d=8_t=11000` files. The `a_d=8_t=11000` file is the result that the sender process alternately sends 0 and 1, and the receiver process observes. The `r_d=8_t=11000` file is the result of a random string sent by the sender process and observed by the receiver process.
 * Files such as `sample-a_d=8_t=11000` are sample files that can be used as reference.
 
 
+scripts:
+* The `print_decode_results.py` script exists in this directory to print out the decoded results of the receiver.
+* You can try the sample file first to observe the correct output:
+  * `python print_decode_results.py --file_path=sample-a_d=8_t=11000 --Threshold=149`  
+    * Execute the above command, the script will output 010101... string. Because the `sample-a_d=8_t=11000` file is the result that the sender process alternately sends 0 and 1, and the receiver process observes.  
+  * `python print_decode_results.py --file_path=sample-r_d=8_t=11000 --Threshold=149`  
+    * The `r_d=8_t=11000` file is the result of a random string sent by the sender process and observed by the receiver process. According to section V of the paper, the beginning position of the random string is set to a fixed bit pattern (`0000101011110101`). So execute the above command, you will see a random string starting with `0000101011110101`.
+  * Now you can change the path to the file you generated, and set the threshold according to your processor.  
+  * Note: When the sender process is executed, it will output the string it sent. You can compare the output of the script with the string output of the execution of the sender process.
+
+
 Tips:
-* In [top level path]/plot/ there is a python code to plot the attack trace. Learn how to use these scripts through step 3.
-* You can choose a threshold that best distinguish the latency of the sender
 
-
+* In [top level path]/plot/ there is a python code to plot the attack trace and solve the bit error rate. Learn how to use these scripts through step 3.
 --------------------------------------------------------------------------------
 
 
@@ -165,9 +175,9 @@ $ `make`
 Code Usage:
 
 Sender:  
-`./WBattacer sender sender_mode sender_period_Ts `  
+`./WBattack sender sender_mode sender_period_Ts `  
 Receiver:  
-`./WBattacer receiver  receiver_period_Tr   `
+`./WBattack receiver  receiver_period_Tr   `
 
 For details on the sender's operations and the receiver's operations, please
 read Section IV of the paper.
@@ -177,11 +187,11 @@ Step 2.1.3: sender sends bit strings:
 
 Open two terminals, first, in terminal 1:  
 
-$ `./WBattacer sender a 11000`
+$ `./WBattack sender a 11000`
 
 Then, in terminal 2:  
 
-$ `./WBattacer receiver 11000 >a_t=11000`
+$ `./WBattack receiver 11000 >a_t=11000`
 
 In this example, the sender program will send 00 01 10 11 alternatively every 11000 cycles and 
 the receiver will take 100000 measurements every 11000 cycles. 
@@ -190,10 +200,10 @@ After the receiver program finishes, you can kill the sender program.
 
 
 Open two terminals, first, in terminal 1:  
-$ `./WBattacer sender r 11000`  
+$ `./WBattack sender r 11000`  
 
 Then, in terminal 2:  
-$ `./WBattacer receiver 11000 >r_t=11000`
+$ `./WBattack receiver 11000 >r_t=11000`
 
 In this example, the sender program will send a random string every 11000 cycles and 
 the receiver will take 100000 measurements every 11000 cycles. 
@@ -205,13 +215,22 @@ Info:
 * Now you can watch the results in the a_t=11000 and r_t=11000 files. 
 Files such as `sample-a_t=11000` are sample files that can be used as reference.
 
+scripts:
+* The `print_decode_results.py` script exists in this directory to print out the decoded results of the receiver.
+* You can try the sample file first to observe the correct output:
+  * `python print_decode_results.py --file_path=sample-a_t=11000`  
+    * Execute the above command, the script will output 00 01 10 11 00 01 10 11 ... string. Because the `sample-a_t=11000` file is the result that the sender process alternately sends `00 01 10 11`, and the receiver process observes.  
+  * `python print_decode_results.py --file_path=sample-r_t=11000`  
+    * The `r_d=8_t=11000` file is the result of a random string sent by the sender process and observed by the receiver process. According to section V of the paper, the beginning position of the random string is set to a fixed bit pattern (`0010001011011101`). So execute the above command, you will see a random string starting with `00 10 00 10 11 01 11 01`.
+  * Now you can change the path to the file you generated. Since decoding in multi-bit transmission requires multiple thresholds, you should modify the thresholds in the script(`ThresHold` variable in the script.).
+  * Note: When the sender process is executed, it will output the string it sent. You can compare the output of the script with the string output of the execution of the sender process.
 
 
 ----------------
 Step 3: Run scripts:
 
 Tips:
-* In [top level path]/plot/ there is a python code to plot the attack trace.  
+* In [top level path]/plot/ there is a python code to plot the attack trace and solve the bit error rate.  
 * plots/
     * binary_encode.py : Scripts related to binary encoding
     * multi_bits_encoding.py: Scripts related to multi-bit encoding
