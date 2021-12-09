@@ -30,6 +30,7 @@ linux distributions.
 install shared library properly. Good luck!
 3. To test hyper-threaded sharing, you must use a machine with a processor that
 has SMT feature enabled.
+4. python 3.x, library e.g., matplotlib, numpy
 
 
 ======================================================================  
@@ -121,7 +122,7 @@ After the receiver program finishes, you can kill the sender program.
 
 
 Info:
-* Now you can watch the results in the `a_d=8_t=11000` and `r_d=8_t=11000` files. The `a_d=8_t=11000` file is the result that the sender process alternately sends 0 and 1, and the receiver process observes. The `r_d=8_t=11000` file is the result of a random string sent by the sender process and observed by the receiver process.
+* Now you can watch the results in the `a_d=8_t=11000` and `r_d=8_t=11000` files. The `a_d=8_t=11000` file is the result that the sender process alternately sends 0 and 1, and the receiver process observes. Since the sender is transmitting `0` and `1` alternately, you can see that high delay and low delay alternately appear. Through this you can determine the threshold on your machine. The `r_d=8_t=11000` file is the result of a random string sent by the sender process and observed by the receiver process.
 * Files such as `sample-a_d=8_t=11000` are sample files that can be used as reference.
 
 
