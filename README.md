@@ -31,7 +31,7 @@ install shared library properly. Good luck!
 3. To test hyper-threaded sharing, you must use a machine with a processor that
 has SMT feature enabled.
 4. python 3.x, library e.g., matplotlib, numpy
-5. We tested on a private cloud server (Intel(R) Xeon(R) CPU E5-2650 v4 ) and a public cloud server (Amazon EC2 M4.large).
+5. We tested on a private cloud server (**Intel(R) Xeon(R) CPU E5-2650 v4** ) and a public cloud server (**Amazon EC2 M4.large**). 
 
 
 ======================================================================  
