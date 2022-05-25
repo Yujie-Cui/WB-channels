@@ -38,8 +38,7 @@ similar work, we ask you to cite our paper.
 **Requirements:**  
 1. The code is tested on Ubuntu 16.04 with gcc 5.4. But it should work on other
 linux distributions.
-2. If you want to run on Windows, you will want to replace some functions, and
-install shared library properly. Good luck!
+2. If you want to run on Windows, you will want to replace some functions. Good luck!
 3. To test hyper-threaded sharing, you must use a machine with a processor that
 has SMT feature enabled.
 4. python 3.x, library e.g., matplotlib, numpy
