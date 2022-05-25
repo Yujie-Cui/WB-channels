@@ -22,6 +22,18 @@ the details of the license.
 2. If you use this code in original or modified version as part of
 a scientific publication, be it a paper, journal article, demonstration, or 
 similar work, we ask you to cite our paper.
+```bibtex
+@inproceedings{wb2022,
+	author={Cui, Yujie and Yang, Chun and Cheng, Xu},
+	title ={{Abusing Cache Line Dirty States to Leak Information in Commercial Processors}},
+	booktitle={2022 IEEE International Symposium on High Performance Computer Architecture (HPCA)},
+	year={2022},
+	pages = {82--97},
+	organization={IEEE}
+}
+```
+
+
 
 **Requirements:**  
 1. The code is tested on Ubuntu 16.04 with gcc 5.4. But it should work on other
@@ -32,6 +44,7 @@ install shared library properly. Good luck!
 has SMT feature enabled.
 4. python 3.x, library e.g., matplotlib, numpy
 5. We tested on a private cloud server (**Intel(R) Xeon(R) CPU E5-2650 v4** ) and a public cloud server (**Amazon EC2 M4.large**). 
+6. Some other microarchitectures exhibit different behavior (such as using MSHR to hold loaded data and pass it directly to the CPU, or using buffer to hold data to be written back). If you want to run on other processor models, you may need to make modifications.
 
 
 ======================================================================  
