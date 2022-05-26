@@ -23,13 +23,13 @@ the details of the license.
 a scientific publication, be it a paper, journal article, demonstration, or 
 similar work, we ask you to cite our paper.
 ```bibtex
-@inproceedings{wb2022,
-	author={Cui, Yujie and Yang, Chun and Cheng, Xu},
-	title ={{Abusing Cache Line Dirty States to Leak Information in Commercial Processors}},
-	booktitle={2022 IEEE International Symposium on High Performance Computer Architecture (HPCA)},
-	year={2022},
-	pages = {82--97},
-	organization={IEEE}
+@inproceedings{cui2022abusing,
+  title={Abusing Cache Line Dirty States to Leak Information in Commercial Processors},
+  author={Cui, Yujie and Yang, Chun and Cheng, Xu},
+  booktitle={2022 IEEE International Symposium on High-Performance Computer Architecture (HPCA)},
+  pages={82--97},
+  year={2022},
+  organization={IEEE}
 }
 ```
 
